@@ -35,7 +35,7 @@ export default function EliteTradeAcademy() {
 ];
 
 
- const isTabAccessible = (tabId) => true;
+ const isTabAccessible = (tabId: string) => true;
   // Premium Feature Gating
   // Authentication States
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -57,7 +57,7 @@ export default function EliteTradeAcademy() {
     }
   }, []);
 
-  const [dashboardTrades, setDashboardTrades] = useState([]);
+const [dashboardTrades, setDashboardTrades] = useState<any[]>([]);
 
 useEffect(() => {
   const loadDashboard = async () => {
@@ -76,9 +76,19 @@ setDashboardTrades(data || []);
 }, [isLoggedIn]);
 
 const totalTrades = dashboardTrades.length;
-const totalPnL = dashboardTrades.reduce((sum, trade) => sum + (trade.pnl || 0), 0);
-const winRate = totalTrades > 0 ? Math.round((dashboardTrades.filter(t => (t.pnl || 0) > 0).length / totalTrades) * 100) : 0;
+const totalPnL = dashboardTrades.reduce(
+  (sum: number, trade: any) => sum + (trade.pnl || 0),
+  0
+);
 
+const winRate =
+  totalTrades > 0
+    ? Math.round(
+        (dashboardTrades.filter((t: any) => (t.pnl || 0) > 0).length /
+          totalTrades) *
+          100
+      )
+    : 0;
  // Updated Login Handler
 const handleLogin = async () => {
   if (!email || !password) {
@@ -153,7 +163,7 @@ const handleSignup = async () => {
   // ==================== TRADING JOURNAL (Full - Unchanged) ====================
  // ==================== TRADING JOURNAL WITH LOCALSTORAGE ====================
 function TradingJournal() {
-  const [trades, setTrades] = useState([]);
+  const [trades, setTrades] = useState<any[]>([]);
   const [formData, setFormData] = useState({
     date: new Date().toISOString().split('T')[0],
     symbol: '',
