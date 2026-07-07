@@ -68,7 +68,7 @@ useEffect(() => {
         .select('*')
         .eq('user_id', user.id);
       
-      setDashboardTrades(data || []);
+     setDashboardTrades(data || [] as any[]);
     }
   };
   loadDashboard();
