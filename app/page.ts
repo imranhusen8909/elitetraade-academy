@@ -1,3 +1,4 @@
+'use client';
 // Add this import at the top of your file (with other imports)
 import { supabase } from './lib/supabase';
 import React, { useState, useEffect } from 'react';
