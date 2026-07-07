@@ -35,7 +35,7 @@ export default function EliteTradeAcademy() {
 ];
 
 
-  const isTabAccessible = (tabId) => true;
+  const isTabAccessible = (tabId: string) => true;
   // Premium Feature Gating
   // Authentication States
   const [isLoggedIn, setIsLoggedIn] = useState(false);
