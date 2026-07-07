@@ -1,4 +1,3 @@
-'use client';
 // Add this import at the top of your file (with other imports)
 import { supabase } from './lib/supabase';
 import React, { useState, useEffect } from 'react';
@@ -35,7 +34,7 @@ export default function EliteTradeAcademy() {
 ];
 
 
-  const isTabAccessible = (tabId: string) => true;
+ const isTabAccessible = (tabId) => true;
   // Premium Feature Gating
   // Authentication States
   const [isLoggedIn, setIsLoggedIn] = useState(false);
